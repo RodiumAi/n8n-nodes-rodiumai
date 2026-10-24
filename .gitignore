@@ -1,0 +1,12 @@
+dist
+node_modules
+
+# Files delivered by the Claude desktop app
+Claude outputs/
+
+# Internal docs and AI agent instructions (kept locally, never published)
+docs/
+CLAUDE.md
+AGENTS.md
+.agents/
+.vscode/

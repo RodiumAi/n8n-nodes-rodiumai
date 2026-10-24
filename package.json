@@ -1,0 +1,68 @@
+{
+	"name": "n8n-nodes-rodiumai",
+	"version": "0.1.0",
+	"description": "Use RodiumAi models in n8n: AI Agent chat model and direct chat completions, paid with Mobile Money.",
+	"license": "MIT",
+	"homepage": "https://www.rodiumai.io",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"rodiumai",
+		"ai",
+		"llm",
+		"openai-compatible",
+		"africa",
+		"mobile-money"
+	],
+	"author": {
+		"name": "RodiumAi",
+		"email": "support@rodiumai.io",
+		"url": "https://www.rodiumai.io"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/RodiumAi/n8n-nodes-rodiumai.git"
+	},
+	"bugs": {
+		"url": "https://github.com/RodiumAi/n8n-nodes-rodiumai/issues"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"test": "tsx --test test/*.test.mts",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist",
+		"!dist/tsconfig.tsbuildinfo"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"aiNodeSdkVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/RodiumAiApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/RodiumAi/RodiumAi.node.js",
+			"dist/nodes/LmChatRodiumAi/LmChatRodiumAi.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/ai-node-sdk": "^0.33.2",
+		"@n8n/node-cli": "*",
+		"eslint": "9.32.0",
+		"prettier": "3.6.2",
+		"release-it": "^21.1.0",
+		"tsx": "^4.20.6",
+		"typescript": "5.9.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*",
+		"@n8n/ai-node-sdk": "*"
+	}
+}

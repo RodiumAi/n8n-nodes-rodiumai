@@ -1,0 +1,54 @@
+{
+	"name": "RodiumAi - AI Agent chat",
+	"nodes": [
+		{
+			"parameters": { "options": {} },
+			"id": "6a1f0b8e-1c2d-4e3f-8a9b-000000000001",
+			"name": "When chat message received",
+			"type": "@n8n/n8n-nodes-langchain.chatTrigger",
+			"typeVersion": 1.1,
+			"position": [0, 0],
+			"webhookId": "6a1f0b8e-1c2d-4e3f-8a9b-0000000000aa"
+		},
+		{
+			"parameters": {
+				"options": {
+					"systemMessage": "You are a helpful assistant. Use the calculator for any arithmetic."
+				}
+			},
+			"id": "6a1f0b8e-1c2d-4e3f-8a9b-000000000002",
+			"name": "AI Agent",
+			"type": "@n8n/n8n-nodes-langchain.agent",
+			"typeVersion": 1.7,
+			"position": [240, 0]
+		},
+		{
+			"parameters": { "model": "rodiumai/smart", "options": {} },
+			"id": "6a1f0b8e-1c2d-4e3f-8a9b-000000000003",
+			"name": "RodiumAi Chat Model",
+			"type": "n8n-nodes-rodiumai.lmChatRodiumAi",
+			"typeVersion": 1,
+			"position": [160, 220]
+		},
+		{
+			"parameters": {},
+			"id": "6a1f0b8e-1c2d-4e3f-8a9b-000000000004",
+			"name": "Calculator",
+			"type": "@n8n/n8n-nodes-langchain.toolCalculator",
+			"typeVersion": 1,
+			"position": [380, 220]
+		}
+	],
+	"connections": {
+		"When chat message received": {
+			"main": [[{ "node": "AI Agent", "type": "main", "index": 0 }]]
+		},
+		"RodiumAi Chat Model": {
+			"ai_languageModel": [[{ "node": "AI Agent", "type": "ai_languageModel", "index": 0 }]]
+		},
+		"Calculator": {
+			"ai_tool": [[{ "node": "AI Agent", "type": "ai_tool", "index": 0 }]]
+		}
+	},
+	"settings": { "executionOrder": "v1" }
+}

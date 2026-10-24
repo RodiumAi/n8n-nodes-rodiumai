@@ -1,0 +1,10 @@
+{
+	"node": "n8n-nodes-rodiumai.rodiumAi",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Development"],
+	"resources": {
+		"credentialDocumentation": [{ "url": "https://www.rodiumai.io/docs/api/authentication" }],
+		"primaryDocumentation": [{ "url": "https://github.com/RodiumAi/n8n-nodes-rodiumai" }]
+	}
+}
